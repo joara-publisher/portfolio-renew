@@ -1,3 +1,10 @@
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.classList.add("hidden");
+  }, 2200); 
+});
+
 $(document).ready(function () {
     // header 불러오기
     if($('.main').length > 0) {
@@ -60,6 +67,20 @@ $(document).ready(function () {
     // 초기 실행 (페이지 새로고침 시에도 active 반영)
     $(window).trigger('scroll');  
     }
+    
+    // 클릭 이벤트 - document에 위임
+    $(document).on("click", ".scroll_to_top_btn", function () {
+      $("html, body").animate({ scrollTop: 0 });
+    });
+    
+    // 스크롤 이벤트는 상시 감지
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $(".scroll_to_top_btn").fadeIn();
+      } else {
+        $(".scroll_to_top_btn").fadeOut();
+      }
+    });
     
     //모바일 메뉴
     $(document).on('click', '.nav_mo .hamburger_btn', function(e) {

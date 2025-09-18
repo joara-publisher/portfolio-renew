@@ -33,6 +33,40 @@ body {
   -moz-osx-font-smoothing: grayscale;  /* 파이어폭스용 */
 }
 
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#preloader .loader-logo {
+  font-size: 32px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed); /* 블루-퍼플 그라디언트 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: fadeInOut 2s ease forwards;
+}
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: scale(0.9); }
+  30%  { opacity: 1; transform: scale(1); }
+  70%  { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
 .hidn_txt {
   position: absolute;
   width: 1px;
@@ -49,7 +83,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 9998;
     width: 100%;
     height: 83px;
     background: border-box;
@@ -706,6 +740,20 @@ footer p {
 footer .sub_txt {
   font-size: 13px; /* 보조 문구 */
   opacity: 0.85;   /* 살짝 연하게 */
+}
+.scroll_to_top_btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: url('../img/up_btn.png') no-repeat center / 55%;
+    background-color: var(--color-white);
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
 }
 
 /* project detail  */
