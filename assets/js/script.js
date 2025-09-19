@@ -153,6 +153,14 @@ window.addEventListener("load", function () {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
       },
+      breakpoints: {
+        768: {
+          slidesPerView: 2, 
+        },
+        0: {
+          slidesPerView: 1, 
+        },
+    },
   });
 
   //career
