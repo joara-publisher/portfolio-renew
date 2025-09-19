@@ -273,23 +273,27 @@ main.container section.home {
     font-weight: bold;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.3s;
+}
+.home.active .title {
+    animation: fadeUp 1s ease forwards 2.3s;
 }
 .home .title .wave {
     display: inline-block;
-    animation: waveHand 1s ease-in-out infinite;
-     transform-origin: 70% 70%;
+    transform-origin: 70% 70%;
+}
+.home.active .title .wave {
+    animation: waveHand 1s ease-in-out infinite 3.3s;
 }
 .home .subtitle {
-    margin-top: 20px;
     font-size: 20px;
+    color: #333;
+    display: inline-block;
+    border-right: 2px solid #333;
+    padding-right: 4px;
     white-space: nowrap;
-    border-right: 2px solid var(--text-primary);
-    width: 0;
-    overflow: hidden;
-    animation: typing 3s steps(28, end) 1s forwards, blink 0.7s step-end infinite;
-    /* 글자 수(공백 포함)만큼 steps 개수 맞추기 */
+}
+.home .subtitle.blink {
+  animation: blink 0.7s step-end infinite;
 }
 .home .icons {
     display: flex;
@@ -305,14 +309,16 @@ main.container section.home {
     font-weight: bold;
     opacity: 0;
     transform: translateY(-30px) scale(0.8);
+}
+.home.active .icon {
     animation: bounceIn 0.6s ease forwards;
 }
 .home .icon img { width: 50px; }
-.home .icon:nth-child(1) { animation-delay: 3.5s; }
-.home .icon:nth-child(2) { animation-delay: 3.7s; }
-.home .icon:nth-child(3) { animation-delay: 3.9s; }
-.home .icon:nth-child(4) { animation-delay: 4.1s; }
-.home .icon:nth-child(5) { animation-delay: 4.5s; }
+.home .icon:nth-child(1) { animation-delay: 6.5s; }
+.home .icon:nth-child(2) { animation-delay: 6.7s; }
+.home .icon:nth-child(3) { animation-delay: 6.9s; }
+.home .icon:nth-child(4) { animation-delay: 7.1s; }
+.home .icon:nth-child(5) { animation-delay: 7.5s; }
 
 @keyframes fadeBg {
     from { opacity: 0; }
@@ -331,12 +337,6 @@ main.container section.home {
     60% { transform: rotate(-10deg); }
     80% { transform: rotate(5deg); }
 }
-@keyframes typing {
-  to {
-    width: 28ch; /* 글자 수에 맞게 조정 */
-  }
-}
-
 @keyframes blink {
   50% { border-color: transparent; }
 }
@@ -405,7 +405,6 @@ main.container section.home {
 }
 .about ul {
     padding-left: 20px;
-    margin-bottom: 35px;
 }
 .about ul li {
 list-style: decimal;  
@@ -420,6 +419,17 @@ list-style: decimal;
 .about ul li dd {
     font-size: 14px;
     margin-bottom: 8px;
+}
+.about .education {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #666;
+    padding-top: 15px;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    border-top: 1px solid #eee; 
 }
 .about .btn_wrap {
     display: flex;
