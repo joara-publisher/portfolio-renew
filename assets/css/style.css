@@ -223,9 +223,15 @@ header nav a.active::after {
 
 /* 모바일 */
 @media (max-width: 480px) {
-    header nav a {
-        font-size: clamp(18px, 5vw, 28px);
-    }
+    header { height: 60px; }
+    header .logo { width: 107px; height: 32px; }
+    .nav_mo .hamburger_btn { top: 16px; width: 28px; height: 28px; }
+    .nav_mo .hamburger_btn span, .nav_mo .hamburger_btn span:before, .nav_mo .hamburger_btn span:after { height: 4px; }
+    .nav_mo .hamburger_btn span:before { top: -12px; }
+    .nav_mo .hamburger_btn span:after { top: 12px; }
+    .nav_mo.active .mo_menu { padding-top: 60px; }
+    header nav ul li { height: calc((100vh - 60px) / 6); }
+    header nav a { font-size: 5vw; }
 }
 
 main.container section {
@@ -425,7 +431,6 @@ list-style: decimal;
 }
 .about .education {
     display: flex;
-    align-items: center;
     gap: 8px;
     font-size: 14px;
     color: #666;
@@ -625,8 +630,11 @@ list-style: decimal;
 }
 .career .item .marker {
   position: absolute;
-  left: -18px; top: 20px;
-  width: 12px; height: 12px; border-radius: 50%;
+  left: -18px; 
+  top: 20px;
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%;
   background: #cfd8ec;
   box-shadow: 0 0 0 3px var(--color-white);
 }
@@ -690,9 +698,6 @@ list-style: decimal;
     padding-bottom: 40px;
     border-bottom: 1px solid var(--color-underline);
 }
-.contact .section_cont {
-    padding-top: 45px;
-}
 .contact dl {
     display: flex;
     align-items: center;
@@ -748,7 +753,27 @@ list-style: decimal;
 
 /* 모바일 */
 @media (max-width: 480px) {
+    main.container section .inner { padding: 8.33vw 0; }
+    main.container .section_title { font-size: 6vw; margin-bottom: 5.00vw; }
+    main.container .btn {  }
+
+    .home .title { font-size: 7.5vw; }
+    .home .subtitle { font-size: 5vw; border-right: 0.42vw solid #333; }
+    .home .icons { flex-wrap: wrap; gap: 6.25vw; margin-top: 5.00vw; }
+    .home .icon { flex: 1 1 calc(50% - 6.25vw); }
+    .home .icon img { width: 10.42vw; }
     
+    .about .section_cont { gap: 4.17vw; }
+    .about .img { width: 50.00vw; height: 50.00vw; }
+    .about .sub_title { font-size: 5vw; padding-bottom: 4.17vw; }
+    .about ul { padding-left: 4.17vw; }
+    .about ul li { font-size: 4.6vw; }
+    .about ul li dd { font-size: 4.2vw; margin-bottom: 1.04vw; }
+    .about .education { gap: 1.04vw; font-size: 4.2vw; padding-top: 2.08vw; margin-top: 4.17vw; margin-bottom: 5.00vw; }
+    .about .btn_wrap { gap: 5.83vw; }
+    
+    .contact .section_title { padding-bottom: 5.00vw; }
+    .contact .section_cont { padding-bottom: 5.00vw; }
 }
 
 footer {
