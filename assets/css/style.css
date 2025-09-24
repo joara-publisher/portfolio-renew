@@ -733,6 +733,11 @@ main.container section.home {
   border: 1px solid var(--color-underline);
   border-radius: 7px;
 }
+.projects .card a.card_link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
 .projects .card .card_img {
   width: 100%;
   height: 172px;
@@ -767,6 +772,10 @@ main.container section.home {
   display: flex;
   gap: 15px;
   transition: all 0.3s;
+}
+.projects .card .btn {
+  position: relative;
+  z-index: 2;
 }
 .projects .card .btn:hover {
   color: var(--bg-main);
@@ -812,7 +821,7 @@ main.container section.home {
 }
 .career .item .marker {
   position: absolute;
-  left: -18px;
+  left: -20px;
   top: 20px;
   width: 12px;
   height: 12px;
@@ -848,7 +857,7 @@ main.container section.home {
   font-size: 12px;
   color: var(--main-color);
   background: #e9f1ff;
-  border-radius: 999px;
+  border-radius: 18px;
   padding: 4px 8px;
 }
 .career .item.seen {
@@ -954,6 +963,9 @@ main.container section.home {
     margin-bottom: 5vw;
   }
   main.container .btn {
+    font-size: 4.2vw;
+    padding: 2vw 3vw;
+    border-radius: 1.6vw;
   }
 
   .home .title {
@@ -1004,14 +1016,139 @@ main.container section.home {
     margin-bottom: 5vw;
   }
   .about .btn_wrap {
-    gap: 5.83vw;
+    gap: 4.17vw;
+  }
+
+  .skills .section_cont {
+    flex-direction: column;
+    gap: 4.17vw;
+  }
+  .skills dl dt {
+    font-size: 5vw;
+    padding-bottom: 4.17vw;
+  }
+  .skills dl dd {
+    font-size: 4.6vw;
+  }
+  .skills dl dd + dd {
+    margin-top: 3.13vw;
+  }
+  .skills.active .ico_wrap {
+    gap: 3.13vw;
+  }
+  .skills dl dd .ico {
+    width: 7vw;
+    height: 7vw;
+  }
+  
+  .projects .swiper {
+    margin: 0 4.17vw;
+  }
+  .projects .card {
+    height: 72.29vw;
+    border-radius: 2.08vw;
+  }
+  .projects .card .card_img {
+    height: 35.83vw;
+  }
+  .projects .card .card_txt {
+    padding: 4.17vw;
+  }
+  .projects .card .pro_tit {
+    font-size: 5vw;
+    margin-bottom: 1.04vw;
+  }
+  .projects .card .pro_period {
+    font-size: 4.2vw;
+    margin-bottom: 4.17vw;
+  }
+  .projects .card .btn_wrap {
+    gap: 4.17vw;
+  }
+  .projects .swiper-button-prev {
+    left: -7.92vw;
+  }
+  .projects .swiper-button-next {
+    right: -7.92vw;
+  }
+  .projects .swiper-button-next:after, .projects .swiper-button-prev:after {
+    width: 4.58vw;
+    height: 9.17vw;
+  }
+
+  .career .timeline {
+    padding: 0 0 0 4.58vw;
+  }
+  .career .timeline::before {
+    left: 1.67vw;
+  }
+  .career .item {
+    row-gap: 1vw;
+    padding: 3vw 2.5vw;
+    margin: 0 0 3vw 0;
+    border-radius: 2.5vw;
+    transform: translateY(1.6vw) scale(0.98);
+  }
+  .career .item.seen {
+    box-shadow: 0 12px 30px rgba(45, 106, 227, 0.08);
+  }
+  .career .item .marker {
+    left: -4.17vw;
+    top: 4.17vw;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  .career .item .period {
+    font-size: 3.3vw;
+  }
+  .career .item .role {
+    font-size: 4.2vw;
+    margin: 0;
+  }
+  .career .item.active .role {
+    font-size: 4.6vw;
+  }
+  .career .item .desc {
+    font-size: 4.2vw;
+    margin: 0;
+  }
+  .career .tags {
+    gap: 1.04vw;
+    margin: 2.08vw 0 0;
+  }
+  .career .tags li {
+    font-size: 3.3vw;
+    padding: 1.04vw 2.08vw;
+    border-radius: 3.75vw;
   }
 
   .contact .section_title {
     padding-bottom: 5vw;
   }
-  .contact .section_cont {
-    padding-bottom: 5vw;
+  .contact dl {
+    gap: 10%;
+  }
+  .contact dl + dl {
+    margin-top: 5vw;
+  }
+  .contact dt {
+    gap: 5vw;
+    font-size: 5vw;
+  }
+  .contact dt .ico {
+    width: 7.5vw;
+    height: 7.5vw;
+    border-radius: 0.8vw;
+  }
+  .contact dl:nth-child(1) dt .ico,
+  .contact dl:nth-child(3) dt .ico {
+    background-size: 6vw;
+  }
+  .contact dl:nth-child(2) dt .ico {
+    background-size: 4.17vw;
+  }
+  .contact dd {
+    font-size: 5vw;
   }
 }
 
