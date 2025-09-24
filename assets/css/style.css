@@ -270,8 +270,6 @@ header nav a.active::after {
   .nav_mo {
     display: block;
   }
-  .nav_mo .nav_btn {
-  }
   .nav_mo .hamburger_btn {
     position: fixed;
     top: 21.5px;
@@ -356,22 +354,22 @@ header nav a.active::after {
     height: 32px;
   }
   .nav_mo .hamburger_btn {
-    top: 16px;
-    width: 28px;
-    height: 28px;
+    top: 17px;
+    width: 25px;
+    height: 25px;
   }
   .nav_mo .hamburger_btn span,
   .nav_mo .hamburger_btn span:before,
   .nav_mo .hamburger_btn span:after {
-    height: 4px;
+    height: 3px;
   }
   .nav_mo .hamburger_btn span:before {
-    top: -12px;
+    top: -10px;
   }
   .nav_mo .hamburger_btn span:after {
-    top: 12px;
+    top: 10px;
   }
-  .nav_mo.active .mo_menu {
+  .nav_mo .mo_menu {
     padding-top: 60px;
   }
   header nav ul li {
@@ -728,8 +726,6 @@ main.container section.home {
   background-image: url(../img/project_slide_btn.png);
 }
 .projects .card {
-  width: 376px;
-  height: 347px;
   border: 1px solid var(--color-underline);
   border-radius: 7px;
 }
@@ -1045,7 +1041,6 @@ main.container section.home {
     margin: 0 4.17vw;
   }
   .projects .card {
-    height: 72.29vw;
     border-radius: 2.08vw;
   }
   .projects .card .card_img {
@@ -1167,8 +1162,8 @@ footer p {
 }
 
 footer .sub_txt {
-  font-size: 13px; /* 보조 문구 */
-  opacity: 0.85; /* 살짝 연하게 */
+  font-size: 13px;
+  opacity: 0.85;
 }
 .scroll_to_top_btn {
   position: fixed;
@@ -1183,6 +1178,16 @@ footer .sub_txt {
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 999;
+}
+
+/* 모바일 */
+@media (max-width: 480px) {
+  .scroll_to_top_btn {
+    bottom: 5vw;
+    right: 5vw;
+    width: 12vw;
+    height: 12vw;
+  }
 }
 
 /* project detail  */
