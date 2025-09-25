@@ -22,44 +22,29 @@ window.addEventListener("load", function () {
       document.getElementById("footer").innerHTML = data;
     });
 
-  // 로딩화면 종료 후 navActive 실행
+  //preload 완전히 사라진 후에 함수 실행
   setTimeout(() => {
     preloader.classList.add("hidden");
 
-    // header가 로드되었다면 navActive 실행
-    if (headerLoaded) {
-      navActive();
-    }
+    // preloader 사라진 뒤 실행
+    navActive();
+    sectionActive();
   }, 2200);
 
-  //header
+  // header (네비게이션 전용)
   function navActive() {
     const $navLinks = $("header nav a");
     const $sections = $("section");
     const headerHeight = $("header").outerHeight();
 
-    // 1. 네비게이션 클릭 시 부드러운 스크롤 + active 클래스 변경
-    $navLinks.on("click", function (e) {
-      // e.preventDefault();
-
-      // const targetId = $(this).attr('href');
-      // const targetOffset = $(targetId).offset().top - headerHeight + 1;
-
-      // $('html, body').animate({ scrollTop: targetOffset }, 600);
-
+    // 1. 네비게이션 클릭 시 active 클래스 변경
+    $navLinks.on("click", function () {
       $navLinks.removeClass("active");
       $(this).addClass("active");
     });
 
-    // 2. 스크롤 시 현재 섹션 감지해서 active 변경
+    // 2. 스크롤 시 현재 섹션 기준으로 nav active 반영
     $(window).on("scroll", function () {
-      // 스크롤 시에 header 배경 불투명
-      if ($(window).scrollTop() > 50) {
-        $("header").addClass("scrolled");
-      } else {
-        $("header").removeClass("scrolled");
-      }
-
       const scrollPos = $(window).scrollTop() + headerHeight + 10;
 
       $sections.each(function () {
@@ -73,16 +58,16 @@ window.addEventListener("load", function () {
           $('header nav a[href="#' + id + '"]').addClass("active");
         }
       });
-    });
-    // home nav에 active가 붙어있는지 확인
-    const homeSec = document.querySelector(".main .home");
-    if (homeSec && homeSec.classList.contains("active")) {
-      setTimeout(() => {
-        typing();
-      }, 1800); // 2.3s 지연 후 실행
-    }
 
-    // 초기 실행 (페이지 새로고침 시에도 active 반영)
+      // header 배경 처리
+      if ($(window).scrollTop() > 50) {
+        $("header").addClass("scrolled");
+      } else {
+        $("header").removeClass("scrolled");
+      }
+    });
+
+    // 초기 실행
     $(window).trigger("scroll");
   }
 
@@ -109,25 +94,6 @@ window.addEventListener("load", function () {
     }
   });
 
-  //section animation
-  const reveals = document.querySelectorAll(".main section");
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  reveals.forEach((reveal) => {
-    observer.observe(reveal);
-  });
-
   //home
   const text = "디자인과 기획의 의도를 구현하는 퍼블리싱";
   const subtitle = document.querySelector(".subtitle");
@@ -145,6 +111,36 @@ window.addEventListener("load", function () {
 
   function cursorBlink() {
     subtitle.classList.add("blink");
+  }
+
+  // section (애니메이션 + typing 전용)
+  function sectionActive() {
+    const sections = document.querySelectorAll(".main section");
+    let typingStarted = false;
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 공통 섹션 active (애니메이션)
+            entry.target.classList.add("active");
+
+            // 첫 번째 섹션일 때 typing 실행 (한 번만)
+            if (entry.target.id === "home" && !typingStarted) {
+              setTimeout(() => {
+                typing();
+              }, 400); // 0.4초 후 실행
+              typingStarted = true;
+            }
+
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
   }
 
   //project

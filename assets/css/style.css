@@ -432,14 +432,14 @@ main.container section.home {
   display: none;
 }
 .home.active .title {
-  animation: fadeUp 1s ease forwards 2.3s;
+  animation: fadeUp 1s ease forwards;
 }
 .home .title .wave {
   display: inline-block;
   transform-origin: 70% 70%;
 }
 .home.active .title .wave {
-  animation: waveHand 1s ease-in-out infinite 3.3s;
+  animation: waveHand 1s ease-in-out infinite 0.3s;
 }
 .home .subtitle {
   font-size: 20px;
@@ -474,19 +474,19 @@ main.container section.home {
   width: 50px;
 }
 .home .icon:nth-child(1) {
-  animation-delay: 6.5s;
+  animation-delay: 2.5s;
 }
 .home .icon:nth-child(2) {
-  animation-delay: 6.7s;
+  animation-delay: 2.7s;
 }
 .home .icon:nth-child(3) {
-  animation-delay: 6.9s;
+  animation-delay: 2.9s;
 }
 .home .icon:nth-child(4) {
-  animation-delay: 7.1s;
+  animation-delay: 3.1s;
 }
 .home .icon:nth-child(5) {
-  animation-delay: 7.5s;
+  animation-delay: 3.5s;
 }
 
 @keyframes fadeBg {
@@ -703,6 +703,15 @@ main.container section.home {
 .projects {
   overflow: hidden;
 }
+.projects .section_cont {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.projects.active .section_cont {
+  opacity: 1;
+  transform: translateY(0);
+}
 .projects .swiper {
   position: relative;
   margin: 0 50px;
@@ -893,6 +902,15 @@ main.container section.home {
 .contact .section_title {
   padding-bottom: 40px;
   border-bottom: 1px solid var(--color-underline);
+}
+.contact .section_cont {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.contact.active .section_cont {
+  opacity: 1;
+  transform: translateY(0);
 }
 .contact dl {
   display: flex;
@@ -1282,8 +1300,6 @@ footer .sub_txt {
   border: none;
 }
 .project_detail .project_screenshot ul li img {
-  /* width: auto;
-    height: 160px; */
   margin-bottom: 25px;
   border-radius: 10px;
   background-color: #ebeef3;
