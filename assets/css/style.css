@@ -1254,7 +1254,6 @@ footer .sub_txt {
 }
 .project_detail .project_overview table th {
   width: 23%;
-  font-weight: 500;
 }
 
 .project_detail .project_details dl {
@@ -1310,4 +1309,56 @@ footer .sub_txt {
 .project_detail .project_screenshot ul li .img_comment {
   font-size: 20px;
   font-weight: 400;
+}
+
+@media (max-width: 1080px) {
+  .project_detail .project_repre .inner {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 480px) {
+  .project_detail main.container .section_title {
+    font-size: 8.0vw;
+    margin-bottom: 5.00vw;
+  }
+  .project_detail .project_repre .project_group span {
+    font-size: 4.6vw;
+  }
+  .project_detail .project_repre .project_group:last-child {
+    margin-top: 2.08vw;
+  }
+  .project_detail .project_overview table th {
+    width: auto;
+  }
+  .project_detail .project_repre .inner {
+    gap: 6.25vw;
+  }
+  .project_detail .project_overview table {
+    font-size: 5vw;
+  }
+  .project_detail .project_details dl dt {
+    font-size: 5vw;
+    margin-bottom: 1.04vw;
+  }
+  .project_detail .project_details dl {
+    font-size: 4.6vw;
+  } 
+  .project_detail .project_screenshot ul {
+    flex-direction: column;
+    gap: 5.00vw;
+  }
+  .project_detail .project_screenshot ul li {
+    width: 100%;
+    padding: 4.17vw;
+    border-radius: 4.17vw;
+  }
+  .project_detail .project_screenshot ul li img {
+    margin-bottom: 4.17vw;
+    border-radius: 4.17vw;
+  }
+  .project_detail .project_screenshot ul li .img_comment {
+    font-size: 5vw;
+  }
 }
